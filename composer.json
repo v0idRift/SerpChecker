@@ -1,9 +1,9 @@
 {
     "$schema": "https://getcomposer.org/schema.json",
-    "name": "laravel/laravel",
+    "name": "v0id/serp-checker",
     "type": "project",
-    "description": "The skeleton application for the Laravel framework.",
-    "keywords": ["laravel", "framework"],
+    "description": "Google organic SERP rank checker built with Laravel 12.",
+    "keywords": ["laravel", "seo", "serp", "rank-checker", "google"],
     "license": "MIT",
     "require": {
         "php": "^8.2",
