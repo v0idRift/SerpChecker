@@ -2,16 +2,8 @@
 
 namespace App\Support;
 
-/**
- *
- */
 final class DomainNormalizer
 {
-    /**
-     * @param string $candidateDomainOrUrl
-     * @param string $targetDomain
-     * @return bool
-     */
     public function matchesTarget(string $candidateDomainOrUrl, string $targetDomain): bool
     {
         $candidate = $this->normalize($candidateDomainOrUrl);
@@ -25,13 +17,9 @@ final class DomainNormalizer
             return true;
         }
 
-        return str_ends_with($candidate, '.' . $target);
+        return str_ends_with($candidate, '.'.$target);
     }
 
-    /**
-     * @param string $input
-     * @return string
-     */
     public function normalize(string $input): string
     {
         $input = strtolower(trim($input));

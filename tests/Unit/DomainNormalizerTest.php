@@ -5,14 +5,8 @@ namespace Tests\Unit;
 use App\Support\DomainNormalizer;
 use PHPUnit\Framework\TestCase;
 
-/**
- *
- */
 class DomainNormalizerTest extends TestCase
 {
-    /**
-     * @return void
-     */
     public function test_it_normalizes_domains_and_urls(): void
     {
         $normalizer = new DomainNormalizer;
@@ -24,9 +18,6 @@ class DomainNormalizerTest extends TestCase
         $this->assertSame('', $normalizer->normalize('   '));
     }
 
-    /**
-     * @return void
-     */
     public function test_it_matches_subdomains_against_a_target_domain(): void
     {
         $normalizer = new DomainNormalizer;

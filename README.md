@@ -1,33 +1,37 @@
-# Google Organic SERP Rank Checker (Laravel 12)
+# SERP Rank Checker
 
-Small Laravel application to check a website position in Google organic results for a given keyword, location, and language.
+Невеликий застосунок на Laravel для перевірки позиції домену в органічній видачі Google за ключовим словом, локацією та мовою.
 
-## Tech
+## Вимоги
 
 - PHP 8.2+
-- Laravel 12
-- Blade
+- Composer
+- Облікові дані SERP API (DataForSEO)
 
-## Requirements
-
-- PHP + Composer
-- SERP API credentials (see `.env.example`)
-
-## Local Run
+## Запуск локально
 
 ```bash
 composer install
 
 cp .env.example .env
-# configure required env vars
-
 php artisan key:generate
+```
+
+У файлі `.env` заповніть змінні:
+
+- `SERP_API_LOGIN`
+- `SERP_API_PASSWORD`
+- (опційно) `SERP_API_BASE_URL`
+
+Запустіть сервер:
+
+```bash
 php artisan serve
 ```
 
-Open `http://127.0.0.1:8000`.
+Відкрийте `http://127.0.0.1:8000`.
 
-## Tests
+## Тести
 
 ```bash
 php artisan test
