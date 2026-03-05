@@ -12,7 +12,7 @@ final readonly class GoogleOrganicRankService
         private DomainNormalizer $domainNormalizer,
     ) {}
 
-    public function findRank(string $keyword, string $site, string $locationName, string $languageName): GoogleOrganicRankResult
+    public function findRank(string $keyword, string $site, int $locationCode, string $languageCode): GoogleOrganicRankResult
     {
         $targetDomain = $this->domainNormalizer->normalize($site);
         if ($targetDomain === '') {
@@ -21,8 +21,8 @@ final readonly class GoogleOrganicRankService
 
         $task = [
             'keyword' => $keyword,
-            'location_name' => $locationName,
-            'language_name' => $languageName,
+            'location_code' => $locationCode,
+            'language_code' => $languageCode,
             'device' => (string) config('serp.google.device', 'desktop'),
             'depth' => (int) config('serp.google.depth', 100),
             'stop_crawl_on_match' => [
@@ -71,7 +71,6 @@ final readonly class GoogleOrganicRankService
                 continue;
             }
 
-            // Ensure we only consider organic results.
             if (($item['type'] ?? null) !== 'organic') {
                 continue;
             }
